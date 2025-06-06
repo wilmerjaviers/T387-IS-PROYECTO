@@ -70,7 +70,7 @@ const Dashboard = () => {
                 <div className="row align-items-center">
                   <div className="col">
                     <h1 className="h3 mb-1">
-                      ¡Bienvenido, {user?.username}! 👋
+                      ¡Bienvenido(a), {user?.username}! 👋
                     </h1>
                     <p className="mb-0">
                       Rol: <span className="badge bg-light text-dark">{user?.role}</span>
