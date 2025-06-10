@@ -93,8 +93,8 @@ const Dashboard = () => {
                   Dashboard de Tareas
                 </h2>
                 <p className="text-muted mb-4">
-                  Aquí aparecerá el sistema de gestión de tareas.<br />
-                  ¡Próximamente agregaremos toda la funcionalidad!
+                 sistema de gestión de tareas.<br />
+                  
                 </p>
                 
                 
@@ -113,7 +113,7 @@ const Dashboard = () => {
                 <div className="mt-4 p-3 bg-light rounded">
                   <small className="text-muted">
                     <strong>Estado:</strong> ✅ Login funcionando correctamente<br />
-                    <strong>Siguiente paso:</strong> Implementar CRUD de tareas
+                    
                   </small>
                 </div>
               </div>
