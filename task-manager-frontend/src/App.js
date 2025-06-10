@@ -9,9 +9,7 @@ import EditTask from './components/EditTask';
 import ProtectedRoute from './components/ProtectedRoute';
 import authService from './services/authService';
 
-// Importar Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
-// Importar Bootstrap JS para funcionalidades como dropdowns
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {

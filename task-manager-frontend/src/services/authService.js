@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 const API_URL = '/api/auth';
 
 // Configurar axios para incluir el token automáticamente
@@ -21,7 +20,7 @@ axios.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Token inválido o expirado
+      
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       window.location.href = '/login';

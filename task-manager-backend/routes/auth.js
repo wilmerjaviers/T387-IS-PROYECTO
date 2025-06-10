@@ -211,7 +211,7 @@ router.get('/users', authenticateToken, async (req, res) => {
     }
 });
 
-// Cerrar sesión (opcional - el frontend puede simplemente eliminar el token)
+// Cerrar sesión)
 router.post('/logout', authenticateToken, (req, res) => {
     res.json({
         success: true,

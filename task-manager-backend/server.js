@@ -13,8 +13,6 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Middleware para logging de requests
 app.use((req, res, next) => {
     console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
     next();
@@ -53,7 +51,7 @@ app.use((error, req, res, next) => {
 // Iniciar servidor
 const startServer = async () => {
     try {
-        // Probar conexión a la base de datos
+        
         const dbConnected = await testConnection();
         
         if (!dbConnected) {
@@ -64,8 +62,7 @@ const startServer = async () => {
         // Iniciar servidor
         app.listen(PORT, () => {
             console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
-            console.log(`📊 API disponible en http://localhost:${PORT}/api`);
-            console.log(`🏥 Health check: http://localhost:${PORT}/api/health`);
+            
         });
 
     } catch (error) {
