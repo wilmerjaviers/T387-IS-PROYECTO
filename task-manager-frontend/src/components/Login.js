@@ -27,7 +27,7 @@ const Login = () => {
       
       
       await Swal.fire({
-        title: '¡Bienvenido!',
+        title: '¡Bienvenido(a)!',
         text: `Hola ${response.user.username}, has iniciado sesión correctamente`,
         icon: 'success',
         timer: 2000,
