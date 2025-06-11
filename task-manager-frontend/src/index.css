@@ -35,6 +35,40 @@ code {
   transform: translateY(-1px);
 }
 
+
+.dropdown {
+  position: relative;
+  z-index: 1000;
+}
+
+.dropdown-menu {
+  z-index: 1050 !important;
+  position: absolute !important;
+}
+
+.dropdown-toggle {
+  z-index: 1001;
+}
+
+
+.card {
+  position: relative;
+  z-index: 1;
+}
+
+.card:hover {
+  z-index: 2;
+}
+
+
+.dropdown.show {
+  z-index: 1100;
+}
+
+.dropdown.show .dropdown-menu {
+  z-index: 1101 !important;
+}
+
 /* Estilos para SweetAlert2 */
 .swal2-popup {
   font-family: inherit;

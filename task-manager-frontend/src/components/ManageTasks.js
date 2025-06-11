@@ -171,7 +171,7 @@ const ManageTasks = () => {
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
         <div className="container">
-          <span className="navbar-brand">Empresa de Desarrollo de Software - Gestión de Tareas</span>
+          <span className="navbar-brand">⚙️ Task Manager - Gestión de Tareas</span>
           <div className="navbar-nav ms-auto">
             <button 
               className="btn btn-outline-light me-3"
@@ -331,16 +331,17 @@ const ManageTasks = () => {
                         <h6 className="card-title mb-0 text-truncate" title={task.title}>
                           {task.title}
                         </h6>
-                        <div className="dropdown">
+                        <div className="dropdown" style={{ position: 'relative', zIndex: 1000 }}>
                           <button 
                             className="btn btn-sm btn-outline-secondary dropdown-toggle"
                             type="button"
                             data-bs-toggle="dropdown"
                             disabled={!canEdit && !canDelete}
+                            style={{ zIndex: 1001 }}
                           >
                             ⚙️
                           </button>
-                          <ul className="dropdown-menu">
+                          <ul className="dropdown-menu" style={{ zIndex: 1002 }}>
                             {canEditFull && (
                               <>
                                 <li>
