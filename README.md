@@ -1,72 +1,223 @@
-# T387-IS-PROYECTO
-PROYECTO FINAL
-# Getting Started with Create React App
+# Sistema de Gestión de Tareas | Grupo: Paola & Wilmer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Un sistema web completo para gestionar tareas en empresas de desarrollo de software, construido con React, Node.js y MySQL.
 
-## Available Scripts
+## Características Principales
 
-In the project directory, you can run:
+- **Autenticación segura** con JWT
+- **Sistema de roles** (Administrador y Desarrollador)
+- **Gestión completa de tareas** (Crear, Ver, Editar, Eliminar)
+- **Asignación de tareas** a usuarios específicos
+- **Dashboard con estadísticas** en tiempo real
+- **Diseño responsive** para móviles y desktop
+- **Interfaz moderna** con Bootstrap
 
-### `npm start`
+## Tecnologías Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Backend
+- **Node.js** + **Express.js**
+- **MySQL** (Base de datos)
+- **JWT** (Autenticación)
+- **bcrypt** (Encriptación de contraseñas)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
+- **React 18**
+- **Bootstrap 5** (Diseño)
+- **SweetAlert2** (Alertas)
+- **Axios** (HTTP Client)
 
-### `npm test`
+## Instalación Rápida
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/tu-usuario/task-manager.git
+cd task-manager
+```
 
-### `npm run build`
+### 2. Configurar Backend
+```bash
+cd task-manager-backend
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Crear archivo `.env`:
+```env
+PORT=5000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=tu_password
+DB_NAME=task_management
+JWT_SECRET=tu_jwt_secret_aqui
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Crear base de datos en MySQL:
+```bash
+mysql -u root -p
+source database.sql
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ejecutar backend:
+```bash
+npm start
+```
 
-### `npm run eject`
+### 3. Configurar Frontend
+```bash
+cd ../task-manager-frontend
+npm install
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Uso de la Aplicación
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Usuario por Defecto
+- **Usuario:** `admin`
+- **Contraseña:** `admin123`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Dashboard Principal
+Después del login, accede a:
+- **Añadir Tareas:** Crear nuevas tareas
+- **Ver Tareas:** Consultar tareas (solo lectura)
+- **Gestionar Tareas:** Editar y administrar tareas
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Roles de Usuario
 
-## Learn More
+**Administrador:**
+- Ver todas las tareas
+- Crear, editar y eliminar cualquier tarea
+- Asignar tareas a cualquier usuario
+- Registrar nuevos usuarios
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Desarrollador:**
+- Ver solo tareas asignadas o creadas por él
+- Cambiar estado de tareas asignadas
+- Crear nuevas tareas
+- Editar solo tareas propias
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Capturas de Pantalla
 
-### Code Splitting
+### Login
+- Página de inicio con fondo personalizable
+- Formulario de autenticación seguro
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Dashboard
+- Estadísticas de tareas en tiempo real
+- Navegación intuitiva a todas las funciones
 
-### Analyzing the Bundle Size
+### Gestión de Tareas
+- Lista de tareas con filtros
+- Cards interactivas con opciones de gestión
+- Cambio rápido de estados
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Características de Seguridad
 
-### Making a Progressive Web App
+- **Contraseñas encriptadas** con bcrypt
+- **Tokens JWT** con expiración de 24h
+- **Validación de datos** en frontend y backend
+- **Protección de rutas** según roles de usuario
+- **Prevención de SQL Injection**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Estructura del Proyecto
 
-### Advanced Configuration
+```
+task-manager/
+├── task-manager-backend/
+│   ├── config/         # Configuración de base de datos
+│   ├── middleware/     # Middlewares de autenticación
+│   ├── routes/         # Rutas de API
+│   ├── server.js       # Servidor principal
+│   └── database.sql    # Esquema de base de datos
+└── task-manager-frontend/
+    ├── src/
+    │   ├── components/ # Componentes React
+    │   └── services/   # Servicios API
+    └── public/         # Archivos estáticos
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## API Endpoints
 
-### Deployment
+### Autenticación
+- `POST /api/auth/login` - Iniciar sesión
+- `POST /api/auth/register` - Registrar usuario
+- `GET /api/auth/profile` - Obtener perfil
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Tareas
+- `GET /api/tasks` - Listar tareas
+- `POST /api/tasks` - Crear tarea
+- `PUT /api/tasks/:id` - Actualizar tarea
+- `DELETE /api/tasks/:id` - Eliminar tarea
 
-### `npm run build` fails to minify
+## Funcionalidades Destacadas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Dashboard Inteligente
+- Estadísticas en tiempo real
+- Navegación contextual según rol
+- Panel especial para administradores
+
+### Gestión Avanzada
+- Filtros por estado, prioridad y usuario
+- Cambio rápido de estados
+- Permisos granulares por rol
+
+### Interfaz de Usuario
+- Diseño moderno con Bootstrap
+- Alertas elegantes con SweetAlert2
+- Navegación intuitiva
+- Responsive design
+
+## Estados de Tareas
+
+- **Pendiente** - Tarea recién creada
+- **En Progreso** - Tarea siendo trabajada
+- **Completada** - Tarea finalizada
+- **Cancelada** - Tarea cancelada
+
+## Prioridades
+
+- **Alta** - Tareas urgentes
+- **Media** - Tareas normales
+- **Baja** - Tareas de menor importancia
+
+## Solución de Problemas
+
+### Backend no inicia
+- Verificar que MySQL esté ejecutándose
+- Comprobar credenciales en archivo `.env`
+- Asegurar que la base de datos existe
+
+### Frontend no se conecta
+- Verificar que el backend esté en puerto 5000
+- Comprobar configuración de proxy en `package.json`
+- Revisar configuración de CORS
+
+### Errores de autenticación
+- Verificar que el JWT_SECRET esté configurado
+- Comprobar que las credenciales sean correctas
+- Revisar logs del servidor para más detalles
+
+## Contribución
+
+1. Fork el proyecto
+2. Crear rama para feature (`git checkout -b feature/nueva-funcionalidad`)
+3. Commit cambios (`git commit -m 'Agregar nueva funcionalidad'`)
+4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abrir Pull Request
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver archivo `LICENSE` para más detalles.
+
+## Soporte
+
+Para soporte técnico o preguntas:
+- Crear un issue en GitHub
+- Contactar al equipo de desarrollo
+- Revisar la documentación técnica
+
+## Versión
+
+**Versión actual:** 1.0.0
+**Fecha de lanzamiento:** junio, 2025
+
+---
+
